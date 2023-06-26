@@ -36,3 +36,46 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
+const boutonTrier = document.querySelector(".btn-trier");
+/*boutonTrier.addEventListener("click", function () {
+    pieces.sort(function (a, b) {
+        return a.prix - b.prix;
+    });
+    console.log(pieces);
+});*/
+
+boutonTrier.addEventListener("click", function () {
+   const piecesOrdonnees = Array.from(pieces);
+   piecesOrdonnees.sort(function (a, b) {
+       return a.prix - b.prix;
+    });
+    console.log(piecesOrdonnees);
+});
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", function () {
+   const piecesFiltrees = pieces.filter(function (piece) {
+       return piece.prix <= 35;
+   });
+   console.log(piecesFiltrees);
+});
+
+const btnFiltrerDescription = document.querySelector(".btn-filtrer-description");
+
+btnFiltrerDescription.addEventListener("click", function() {
+    //document.body.style.backgroundColor = ("red");
+    const piecesFiltrees = pieces.filter(function(piece) {
+        return piece.description != null;
+    });
+    console.log(piecesFiltrees);
+});
+
+const boutonTrierDecroissant = document.querySelector(".btn-trier-decroissant");
+boutonTrierDecroissant.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return b.prix - a.prix;
+     });
+     console.log(piecesOrdonnees);
+ });

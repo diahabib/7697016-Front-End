@@ -1,6 +1,9 @@
+import { ajoutListenersAvis } from "./avis.js";
+
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
+
 
 function genererPieces(pieces){
     for (let i = 0; i < pieces.length; i++) {
@@ -39,7 +42,8 @@ function genererPieces(pieces){
         //Code aJouté
         pieceElement.appendChild(avisBouton);
     
-     }
+    }
+    ajoutListenersAvis();
 }
 
 genererPieces(pieces);
@@ -144,3 +148,10 @@ inputPrixMax.addEventListener('input', function(){
     genererPieces(piecesFiltrees);  
 })
 
+/*function genererPieces(pieces){
+    for (let i = 0; i < pieces.length; i++) {
+        //...
+    }
+        // Ajout de la fonction ajoutListenersAvis
+    ajoutListenersAvis();
+}*/
